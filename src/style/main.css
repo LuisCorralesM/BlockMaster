@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(9, 8, 24);
+}
+
+/* Nav bar */
+
+.d-flex{
+    width: 600px;
+    height: 45px;
+}
+
+.d-flex input{
+    border-radius: 8px 0 0 8px;
+    border: 1px solid rgb(253, 231, 26);    
+}
+
+.contenedor-nav-bar{
+    padding: 0 50px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+}
+
+/* Login */
+.contenedor-login{
+    margin: 100px 35%;
+}
+
+.contenedor-login form{
+    text-align: center;
+}
