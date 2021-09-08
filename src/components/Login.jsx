@@ -17,7 +17,6 @@ export default class Login extends Component {
         }
     }
 
-
     iniciarSesion = async () => {
         await axios.get(url, { params: { userName: this.state.form.userName, password: md5(this.state.form.password) } })
             .then((response) => { return response.data })
@@ -29,7 +28,9 @@ export default class Login extends Component {
                         form: {
                             redirecionar: true
                         }
-                    })                    
+                    })     
+                    const datosLogin = {userName: respuesta.nombre, password: respuesta.password} 
+                    localStorage.setItem('datosLogin', JSON.stringify(datosLogin) )
                 } else {
                     alert('El usuario no se encuentra registrado')
                 }
