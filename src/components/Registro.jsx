@@ -4,8 +4,7 @@ import axios from 'axios';
 import md5 from 'md5';
 import uuid from 'react-uuid';
 
-const url = 'https://api-luis.herokuapp.com/usuario'
-
+const url = 'https://api-sprint-block-master.herokuapp.com/usuarios/'
 
 export default class Registro extends Component {
     constructor(){

@@ -66,7 +66,7 @@ export default class ListContainer extends Component {
                                 />
                             )
                         })
-                    }
+                    }   
 
                 </div>
             </div>

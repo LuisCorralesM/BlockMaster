@@ -28,6 +28,11 @@ export const Navbar = (props) => {
                                 Menos valoradas
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/crud">
+                                CRUD
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div>{props.form}</div>
