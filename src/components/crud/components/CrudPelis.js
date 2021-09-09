@@ -4,8 +4,12 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {fileUpload} from '../helpers/fileUpload';
+import { Link } from 'react-router-dom';
 
-const url = "https://api-sprint-block-master.herokuapp.com/usuarios/"
+// const url = "https://api-sprint-block-master.herokuapp.com/usuarios/"
+
+// se cambia la data de usuarios a peliculas
+const url = "https://api-sprint-block-master.herokuapp.com/peliculas/"
 
 export default class CrudPeliculas extends Component {
 
@@ -15,16 +19,26 @@ export default class CrudPeliculas extends Component {
             data: [],
             modalInsertar: false,
             modalEliminar: false,
+            // form: {
+            //     id: '',
+            //     documento: '',
+            //     nombres: '',
+            //     apellidos: '',
+            //     telefono: '',
+            //     celular: '',
+            //     direccion: '',
+            //     imagen: ''
+            // },
+
+            // Se cambia la estructura de la data
             form: {
                 id: '',
-                documento: '',
-                nombres: '',
-                apellidos: '',
-                telefono: '',
-                celular: '',
-                direccion: '',
+                pelicula: '',
+                calificacion: '',
+                genero: '',
                 imagen: ''
             },
+
             tipoModal: ''
         }
     }
@@ -62,22 +76,36 @@ export default class CrudPeliculas extends Component {
         console.log(this.state.form)
     }
 
-    SeleccionarEstudiante = (estudiante) => {
+    // SeleccionarEstudiante = (estudiante) => {
+        // se cambia estudiante por pelicula
+        
+    SeleccionarEstudiante = (peliculas) => {
 
          this.setState({
              tipoModal: 'actualizar',
+            //  form: {
+            //     id: estudiante.id,
+            //     documento: estudiante.documento,
+            //     nombres: estudiante.nombres,
+            //     apellidos: estudiante.apellidos,
+            //     telefono: estudiante.telefono,
+            //     celular: estudiante.celular,
+            //     direccion: estudiante.direccion,
+            //     imagen: estudiante.imagen
+            //  }
+
+            // Se cambia la estructura de la data
              form: {
-                id: estudiante.id,
-                documento: estudiante.documento,
-                nombres: estudiante.nombres,
-                apellidos: estudiante.apellidos,
-                telefono: estudiante.telefono,
-                celular: estudiante.celular,
-                direccion: estudiante.direccion,
-                imagen: estudiante.imagen
+                id: peliculas.id,
+                pelicula: peliculas.pelicula,
+                calificacion: peliculas.calificacion,
+                genero: peliculas.genero,
+                imagen: peliculas.imagen
              }
+
          })
-         console.log(estudiante)
+        //  console.log(estudiante)
+        console.log(peliculas);
     }
 
     peticionGet= async()=>{
@@ -126,14 +154,19 @@ export default class CrudPeliculas extends Component {
         return (
             <div className="container">
                 <br />
-                <button className="btn btn-dark"
-                onClick={() => {this.setState({form: null, tipoModal: 'insertar'});this.modalInsertar()}}
-                >Módulo CrudPeliculas</button>
+                <div>
+                    <button className="btn btn-dark"
+                    onClick={() => {this.setState({form: null, tipoModal: 'insertar'});this.modalInsertar()}}
+                    >
+                        Subir película
+                    </button>
+                    <button className="btn btn-secondary"><Link to="/todas" className="text-light">Home</Link></button>
+                </div>
                 <br /> <br />
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            {/* <th>Id</th>
                             <th>Documento</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
@@ -141,27 +174,51 @@ export default class CrudPeliculas extends Component {
                             <th>Celular</th>
                             <th>Dirección</th>
                             <th>Imagen</th>
+                            <th>Operaciones</th> */}
+                            
+                             {/* metemos la nueva tabla */}
+                            <th>Id</th>
+                            <th>Película</th>
+                            <th>Calificacion</th>
+                            <th>Género</th>
+                            <th>Imagen</th>
                             <th>Operaciones</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         {
                             this.state.data.map(est => {
                                 return(
+                                    // <tr key={est.id}>
+                                    //     <td>{est.id}</td>
+                                    //     <td>{est.documento}</td>
+                                    //     <td>{est.nombres}</td>
+                                    //     <td>{est.apellidos}</td>
+                                    //     <td>{est.telefono}</td>
+                                    //     <td>{est.celular}</td>
+                                    //     <td>{est.direccion}</td>
+                                    //     <td><img src={est.imagen} width="50px" height="70px" alt=""/></td>
+                                    //     <button className="btn btn-primary"
+                                    //      onClick={() => {this.SeleccionarEstudiante(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                    //      <button className="btn btn-danger"
+                                    //      onClick={() => {this.SeleccionarEstudiante(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                    // </tr>
+
+                                    // El nuevo cuerpo de la tabla
+
                                     <tr key={est.id}>
                                         <td>{est.id}</td>
-                                        <td>{est.documento}</td>
-                                        <td>{est.nombres}</td>
-                                        <td>{est.apellidos}</td>
-                                        <td>{est.telefono}</td>
-                                        <td>{est.celular}</td>
-                                        <td>{est.direccion}</td>
+                                        <td>{est.pelicula}</td>
+                                        <td>{est.calificacion}</td>
+                                        <td>{est.genero}</td>
                                         <td><img src={est.imagen} width="50px" height="70px" alt=""/></td>
                                         <button className="btn btn-primary"
                                          onClick={() => {this.SeleccionarEstudiante(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                          <button className="btn btn-danger"
                                          onClick={() => {this.SeleccionarEstudiante(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                                     </tr>
+                                    
                                 )
                             })
                         }
@@ -170,13 +227,13 @@ export default class CrudPeliculas extends Component {
                 </table>
 
                 <Modal isOpen={this.state.modalInsertar}>
-                    <h1>Crear Estudiante</h1>
+                    <h1>Subir Película</h1>
                     <ModalHeader style={{display: 'block'}}>
-                        <span style={{float: 'right'}}>x</span>
+                        <button onClick={() => this.modalInsertar()} style={{float: 'right'}} className="bg-danger">X</button>
                     </ModalHeader>
                     <ModalBody>
                         <div className="form-group">
-                            <label htmlFor="id">id</label>
+                            {/* <label htmlFor="id">id</label>
                             <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id:''}/>
                             <br/>
                             <label htmlFor="documento">Documento</label>
@@ -196,6 +253,21 @@ export default class CrudPeliculas extends Component {
                             <br/>
                             <label htmlFor="direccion">Dirección</label>
                             <input className="form-control" type="text" name="direccion" id="direccion" onChange={this.handleChange} value={form?form.direccion:''}/>
+                            <br/> */}
+
+                            {/* El nuevo modal para subir los datos */}
+
+                            <label htmlFor="id">id</label>
+                            <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id:''}/>
+                            <br/>
+                            <label htmlFor="pelicula">Película</label>
+                            <input className="form-control" type="text" name="pelicula" id="pelicula" onChange={this.handleChange} value={form?form.pelicula:''}/>
+                            <br/>
+                            <label htmlFor="calificacion">Calificacion</label>
+                            <input className="form-control" type="text" name="calificacion" id="calificacion" onChange={this.handleChange} value={form?form.calificacion:''}/>
+                            <br/>
+                            <label htmlFor="genero">Genero</label>
+                            <input className="form-control" type="text" name="genero" id="genero" onChange={this.handleChange} value={form?form.genero:''}/>
                             <br/>
                             <input 
                             id="fileSelector"
@@ -240,7 +312,9 @@ export default class CrudPeliculas extends Component {
 
                 <Modal isOpen={this.state.modalEliminar}>
                     <ModalBody>
-                        Está seguro de eliminar el estudiante {form && form.nombres}
+                        {/* Está seguro de eliminar el estudiante {form && form.nombres} */}
+                        {/* Nuevo mensaje */}
+                        Está seguro de eliminar el estudiante {form && form.pelicula}
                     </ModalBody>
                     <ModalFooter>
                         <button className="btn btn-danger"

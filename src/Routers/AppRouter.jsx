@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import 'bootswatch/dist/solar/bootstrap.min.css'
-// import 'bootswatch/dist/solar/bootstrap/.'
 
 import {
     BrowserRouter,
