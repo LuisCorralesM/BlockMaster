@@ -174,7 +174,7 @@ export default class CrudPeliculas extends Component {
                             <th>Celular</th>
                             <th>Dirección</th>
                             <th>Imagen</th>
-                            <th>Operaciones</th> */}
+                            <th>Editar/Borrar</th> */}
                             
                              {/* metemos la nueva tabla */}
                             <th>Id</th>
@@ -182,7 +182,8 @@ export default class CrudPeliculas extends Component {
                             <th>Calificacion</th>
                             <th>Género</th>
                             <th>Imagen</th>
-                            <th>Operaciones</th>
+                            <th>Editar</th>
+                            <th>Borrar</th>
 
                         </tr>
                     </thead>
@@ -213,10 +214,14 @@ export default class CrudPeliculas extends Component {
                                         <td>{est.calificacion}</td>
                                         <td>{est.genero}</td>
                                         <td><img src={est.imagen} width="50px" height="70px" alt=""/></td>
-                                        <button className="btn btn-primary"
-                                         onClick={() => {this.SeleccionarEstudiante(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
-                                         <button className="btn btn-danger"
-                                         onClick={() => {this.SeleccionarEstudiante(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                        <td>
+                                            <button className="btn btn-primary"
+                                            onClick={() => {this.SeleccionarEstudiante(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                        </td>
+                                        <td>
+                                            <button className="btn btn-danger"
+                                            onClick={() => {this.SeleccionarEstudiante(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                        </td>
                                     </tr>
                                     
                                 )
