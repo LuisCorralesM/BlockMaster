@@ -6,9 +6,7 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {fileUpload} from '../helpers/fileUpload';
 import { Link } from 'react-router-dom';
 
-// const url = "https://api-sprint-block-master.herokuapp.com/usuarios/"
 
-// se cambia la data de usuarios a peliculas
 const url = "https://api-sprint-block-master.herokuapp.com/peliculas/"
 
 export default class CrudPeliculas extends Component {
@@ -19,18 +17,6 @@ export default class CrudPeliculas extends Component {
             data: [],
             modalInsertar: false,
             modalEliminar: false,
-            // form: {
-            //     id: '',
-            //     documento: '',
-            //     nombres: '',
-            //     apellidos: '',
-            //     telefono: '',
-            //     celular: '',
-            //     direccion: '',
-            //     imagen: ''
-            // },
-
-            // Se cambia la estructura de la data
             form: {
                 id: '',
                 pelicula: '',
@@ -76,25 +62,10 @@ export default class CrudPeliculas extends Component {
         console.log(this.state.form)
     }
 
-    // SeleccionarEstudiante = (estudiante) => {
-        // se cambia estudiante por pelicula
-        
     SeleccionarEstudiante = (peliculas) => {
 
          this.setState({
              tipoModal: 'actualizar',
-            //  form: {
-            //     id: estudiante.id,
-            //     documento: estudiante.documento,
-            //     nombres: estudiante.nombres,
-            //     apellidos: estudiante.apellidos,
-            //     telefono: estudiante.telefono,
-            //     celular: estudiante.celular,
-            //     direccion: estudiante.direccion,
-            //     imagen: estudiante.imagen
-            //  }
-
-            // Se cambia la estructura de la data
              form: {
                 id: peliculas.id,
                 pelicula: peliculas.pelicula,
@@ -104,7 +75,6 @@ export default class CrudPeliculas extends Component {
              }
 
          })
-        //  console.log(estudiante)
         console.log(peliculas);
     }
 
@@ -166,17 +136,6 @@ export default class CrudPeliculas extends Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            {/* <th>Id</th>
-                            <th>Documento</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Teléfono</th>
-                            <th>Celular</th>
-                            <th>Dirección</th>
-                            <th>Imagen</th>
-                            <th>Editar/Borrar</th> */}
-                            
-                             {/* metemos la nueva tabla */}
                             <th>Id</th>
                             <th>Película</th>
                             <th>Calificacion</th>
@@ -191,22 +150,6 @@ export default class CrudPeliculas extends Component {
                         {
                             this.state.data.map(est => {
                                 return(
-                                    // <tr key={est.id}>
-                                    //     <td>{est.id}</td>
-                                    //     <td>{est.documento}</td>
-                                    //     <td>{est.nombres}</td>
-                                    //     <td>{est.apellidos}</td>
-                                    //     <td>{est.telefono}</td>
-                                    //     <td>{est.celular}</td>
-                                    //     <td>{est.direccion}</td>
-                                    //     <td><img src={est.imagen} width="50px" height="70px" alt=""/></td>
-                                    //     <button className="btn btn-primary"
-                                    //      onClick={() => {this.SeleccionarEstudiante(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
-                                    //      <button className="btn btn-danger"
-                                    //      onClick={() => {this.SeleccionarEstudiante(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
-                                    // </tr>
-
-                                    // El nuevo cuerpo de la tabla
 
                                     <tr key={est.id}>
                                         <td>{est.id}</td>
@@ -238,29 +181,6 @@ export default class CrudPeliculas extends Component {
                     </ModalHeader>
                     <ModalBody>
                         <div className="form-group">
-                            {/* <label htmlFor="id">id</label>
-                            <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id:''}/>
-                            <br/>
-                            <label htmlFor="documento">Documento</label>
-                            <input className="form-control" type="text" name="documento" id="documento" onChange={this.handleChange} value={form?form.documento:''}/>
-                            <br/>
-                            <label htmlFor="nombres">Nombres</label>
-                            <input className="form-control" type="text" name="nombres" id="nombres" onChange={this.handleChange} value={form?form.nombres:''}/>
-                            <br/>
-                            <label htmlFor="apellidos">Apellidos</label>
-                            <input className="form-control" type="text" name="apellidos" id="apellidos" onChange={this.handleChange} value={form?form.apellidos:''}/>
-                            <br/>
-                            <label htmlFor="telefono">Teléfono</label>
-                            <input className="form-control" type="text" name="telefono" id="telefono" onChange={this.handleChange} value={form?form.telefono:''}/>
-                            <br/>
-                            <label htmlFor="celular">Celular</label>
-                            <input className="form-control" type="text" name="celular" id="celular" onChange={this.handleChange} value={form?form.celular:''}/>
-                            <br/>
-                            <label htmlFor="direccion">Dirección</label>
-                            <input className="form-control" type="text" name="direccion" id="direccion" onChange={this.handleChange} value={form?form.direccion:''}/>
-                            <br/> */}
-
-                            {/* El nuevo modal para subir los datos */}
 
                             <label htmlFor="id">id</label>
                             <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id:''}/>
@@ -317,8 +237,6 @@ export default class CrudPeliculas extends Component {
 
                 <Modal isOpen={this.state.modalEliminar}>
                     <ModalBody>
-                        {/* Está seguro de eliminar el estudiante {form && form.nombres} */}
-                        {/* Nuevo mensaje */}
                         Está seguro de eliminar el estudiante {form && form.pelicula}
                     </ModalBody>
                     <ModalFooter>
