@@ -19,12 +19,12 @@ export const Navbar = (props) => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/Mas">
+                            <Link className="nav-link" to="/mas">
                                 Más valoradas
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/Menos">
+                            <Link className="nav-link" to="/menos">
                                 Menos valoradas
                             </Link>
                         </li>

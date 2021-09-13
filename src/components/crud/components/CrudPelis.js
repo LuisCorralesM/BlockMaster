@@ -7,7 +7,7 @@ import {fileUpload} from '../helpers/fileUpload';
 import { Link } from 'react-router-dom';
 
 
-const url = "https://api-sprint-block-master.herokuapp.com/peliculas/"
+const url = "https://api-sprint-block-master.herokuapp.com/peliculas-nuevas/"
 
 export default class CrudPeliculas extends Component {
 
@@ -62,7 +62,7 @@ export default class CrudPeliculas extends Component {
         console.log(this.state.form)
     }
 
-    SeleccionarEstudiante = (peliculas) => {
+    seleccionarPelicula = (peliculas) => {
 
          this.setState({
              tipoModal: 'actualizar',
@@ -159,11 +159,11 @@ export default class CrudPeliculas extends Component {
                                         <td><img src={est.imagen} width="50px" height="70px" alt=""/></td>
                                         <td>
                                             <button className="btn btn-primary"
-                                            onClick={() => {this.SeleccionarEstudiante(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                            onClick={() => {this.seleccionarPelicula(est); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                         </td>
                                         <td>
                                             <button className="btn btn-danger"
-                                            onClick={() => {this.SeleccionarEstudiante(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                            onClick={() => {this.seleccionarPelicula(est); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                                         </td>
                                     </tr>
                                     

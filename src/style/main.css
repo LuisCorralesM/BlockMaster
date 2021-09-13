@@ -11,7 +11,7 @@ body{
 
 .d-flex input{
     border-radius: 8px 0 0 8px;
-    border: 1px solid rgb(253, 231, 26);    
+    border: 1px solid rgb(253, 231, 26);  
 }
 
 .contenedor-nav-bar{
@@ -28,4 +28,49 @@ body{
 
 .contenedor-login form{
     text-align: center;
+}
+
+/* Cards pelicuas */
+.tarjeta-peliculas{
+    border-radius: 16px;
+    position: relative;
+}
+
+/* Calificacion */
+
+.calificacion{
+    position: absolute;
+    display: flex;
+    top: 20px;
+    left: -4px;
+    width: 50%;
+    height: 60px;
+    font-size: 30px;
+    font-weight: 900;
+    justify-content: center;
+    border: 4px solid rgb(9, 8, 24);
+    border-radius: 0px 30px 30px 0px;
+    background-color: rgba(0, 0, 0, 0.678);
+    color: white;
+}
+
+.calificacion img{
+    padding: 8px 5px 15px 0px;
+}
+
+/* formulario */
+
+.formulario-registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.formulario-registro > input{
+    width: 40%;
+    margin-bottom: 10px;
 }

@@ -12,6 +12,8 @@ import Detalle from '../components/Detalle';
 import Registro from '../components/Registro';
 import Login from '../components/Login';
 import CrudPeliculas from '../components/crud/components/CrudPelis';
+import Mas from '../components/Mas';
+import Menos from '../components/Menos';
 
 export default class AppRouters extends Component {
     render() {
@@ -23,6 +25,8 @@ export default class AppRouters extends Component {
                     <Route exact path="/todas" component={ListContainer} />
                     <Route exact path="/detalle" component={Detalle} />
                     <Route exact path="/crud" component={CrudPeliculas} />
+                    <Route exact path="/mas" component={Mas} />
+                    <Route exact path="/menos" component={Menos} />
                 </Switch>
 
             </BrowserRouter>

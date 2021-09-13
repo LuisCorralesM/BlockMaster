@@ -1,28 +1,43 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+// import Detalle from './Detalle'
 
 export default class Card extends Component {
     render() {
-        const { Title, Poster, Year, Type } = this.props.data
-        return (
-            <div className="container ms-1 text-center"  >
-                <div className="col">
-                    <div className="card text-white bg-dark mb-3">
-                        <img src={Poster} className="" alt="..." width="245px" height="300px" />
-                        <div className="card-body">
-                            <h5 className="card-title">{Title}</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">{Year} </h6>
-                        </div>
-                        <div className="m-2">
+        const { Poster, Rating} = this.props.data
+        if(Rating){
+            return (
+                <div className="container text-center"  >
+                    <div className="card text-white mb-3 tarjeta-peliculas">
+                        <div>
                             <Link
-                                className="btn btn-danger"
                                 to="/detalle"
-                            >Detalle
+                            >
+                                <img src={Poster} className="tarjeta-peliculas" alt="..." width="100%" height="300px" />
+                            </Link>
+                        </div>
+                        <div className="calificacion">
+                            <img src="https://res.cloudinary.com/academia-geek/image/upload/v1631476593/Block-master/estrellita_wei1zw.png" alt="" /> {Rating}
+                        </div>
+                    </div>
+                    {/* <Detalle data={this.props.data}/> */}
+                </div>
+            )
+    
+        }else{
+            return (
+                <div className="container text-center"  >
+                    <div className="card text-white mb-3 tarjeta-peliculas">
+                        <div>
+                            <Link
+                                to="/detalle"
+                            >
+                                <img src={Poster} className="tarjeta-peliculas" alt="..." width="100%" height="300px" />
                             </Link>
                         </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }

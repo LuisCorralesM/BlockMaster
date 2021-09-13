@@ -60,25 +60,31 @@ export default class Registro extends Component {
     render(){
         return (
             <div className="Registro py-5 container text-center">
-                <form className="form-signin" onSubmit={this.handleSutmit}>
+                <form className="form-signin formulario-registro" onSubmit={this.handleSutmit}>
+                    <div
+                    ></div>
                     <h1 className="h3 mb-3 font-weight-normal">
                         ¡Registrate en nuestro sistema!
                     </h1>
+                    {/* icono */}
                     <div className="fadeIn first ">
                         <img 
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS689Xb1GJwNGzZl9KR7CTRKAZFaXt1060H32xPbb8hw_NXNpJ409Sl-aLnPsJQUfKJnYEV_KndttR1bbUKS_f7DGE3OP59H1Y&usqp=CAU&ec=45725305" 
                         id="icon" 
                         alt="User Icon" 
                         width="100px"/>
+
                         <h3>Crea una cuenta</h3>
                     </div>
-
+                    {/* formulario */}
+                  
                     <input
                         type="text"
                         placeholder="Apellido paterno"
                         name="apellido_paterno"
                         className="form-control"
                         autoComplete="off"
+                        required=""
                         onChange={this.handleChange}
 
                     />
@@ -89,7 +95,6 @@ export default class Registro extends Component {
                         name="apellido_materno"
                         className="form-control"
                         autoComplete="off"
-
                         required=""
                         onChange={this.handleChange}
                     />
@@ -98,7 +103,7 @@ export default class Registro extends Component {
                         type="text"
                         name="nombre"
                         className="form-control"
-                        placeholder="nombre"
+                        placeholder="Nombre"
                         required=""
                         onChange={this.handleChange}
                     />
@@ -118,7 +123,7 @@ export default class Registro extends Component {
                         className="form-control"
                         placeholder="Password"
                         required=""
-                        onChange={this.handleChange}
+                        onChange={this.handleChange} 
                     />
                     <br />
                     <button
@@ -135,10 +140,10 @@ export default class Registro extends Component {
                     >
                         Already registered?
                     </Link>
-                </form>
+               
                 { this.state.form.redirecionar && <Redirect to="/" /> }
-
+                </form>
             </div>
-        )
+)
     }
 }
