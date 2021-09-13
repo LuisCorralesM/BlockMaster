@@ -10,11 +10,10 @@ export default class Card extends Component {
                 <div className="container text-center"  >
                     <div className="card text-white mb-3 tarjeta-peliculas">
                         <div>
-                            <Link
-                                to="/detalle"
+                            <div
                             >
                                 <img src={Poster} className="tarjeta-peliculas" alt="..." width="100%" height="300px" />
-                            </Link>
+                            </div>
                         </div>
                         <div className="calificacion">
                             <img src="https://res.cloudinary.com/academia-geek/image/upload/v1631476593/Block-master/estrellita_wei1zw.png" alt="" /> {Rating}
@@ -29,11 +28,10 @@ export default class Card extends Component {
                 <div className="container text-center"  >
                     <div className="card text-white mb-3 tarjeta-peliculas">
                         <div>
-                            <Link
-                                to="/detalle"
+                            <div
                             >
                                 <img src={Poster} className="tarjeta-peliculas" alt="..." width="100%" height="300px" />
-                            </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

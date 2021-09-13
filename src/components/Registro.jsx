@@ -62,7 +62,8 @@ export default class Registro extends Component {
             <div className="Registro py-5 container text-center">
                 <form className="form-signin formulario-registro" onSubmit={this.handleSutmit}>
                     <div
-                    ></div>
+                    className="cajita"
+                    >
                     <h1 className="h3 mb-3 font-weight-normal">
                         ¡Registrate en nuestro sistema!
                     </h1>
@@ -128,21 +129,23 @@ export default class Registro extends Component {
                     <br />
                     <button
                         type="submit"
-                        className="btn btn-primary btn-block mb-1"
+                        className="btn btn-primary btn-block mb-1 boton"
                         onClick={()=>this.RegistroUsuarios()}
                     >
-                        Register
+                        Registro
                     </button>
                     <br />
                     <Link
                         to="/"
                         className="link"
                     >
-                        Already registered?
+                        ¿Ya estas registrado?
                     </Link>
                
                 { this.state.form.redirecionar && <Redirect to="/" /> }
+                </div>
                 </form>
+                
             </div>
 )
     }

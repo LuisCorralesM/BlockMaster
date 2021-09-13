@@ -28,9 +28,9 @@ export default class Login extends Component {
                         form: {
                             redirecionar: true
                         }
-                    })     
-                    const datosLogin = {userName: respuesta.nombre, password: respuesta.password} 
-                    localStorage.setItem('datosLogin', JSON.stringify(datosLogin) )
+                    })
+                    const datosLogin = { userName: respuesta.nombre, password: respuesta.password }
+                    localStorage.setItem('datosLogin', JSON.stringify(datosLogin))
                 } else {
                     alert('El usuario no se encuentra registrado')
                 }
@@ -55,58 +55,61 @@ export default class Login extends Component {
     render() {
         return (
             <div className="contenedor-login">
-                <form className="form-signin" onSubmit={this.handleSubmit}>
-                    <h1 className="h4 mb-3 font-weight-normal">
-                        Inicio de sesión
-                    </h1>
+                <form className="form-signin formulario-registro" onSubmit={this.handleSubmit}>
+                    <div className="cajita-login">
+                        <h1 className="h4 mb-3 font-weight-normal">
+                            Inicio de sesión
+                        </h1>
 
-                    <input
-                        type="email"
-                        id="inputEmail"
-                        className="form-control mt-1"
-                        placeholder="Email"
-                        required=""
-                        name="userName"
-                        onChange={this.handleChange}
-                    />
+                        <input
+                            type="email"
+                            id="inputEmail"
+                            className="form-control mt-1"
+                            placeholder="Email"
+                            required=""
+                            name="userName"
+                            onChange={this.handleChange}
+                        />
 
-                    <input
-                        type="Password"
-                        id="inputPassword"
-                        className="form-control mt-1"
-                        placeholder="Contreña"
-                        required=""
-                        name="password"
-                        onChange={this.handleChange}
-                    />
+                        <input
+                            type="Password"
+                            id="inputPassword"
+                            className="form-control mt-1"
+                            placeholder="Contreña"
+                            required=""
+                            name="password"
+                            onChange={this.handleChange}
+                        />
 
-                    <button
-                        type="submit"
-                        className="btn btn-primary btn-block"
-                    >
-                        Login
-                    </button>
+                        <button
+                            type="submit"
+                            className="btn btn-primary btn-block boton-login"
+                        >
+                            Login
+                        </button>
 
-                    <div className="">
-                        <p>Login with social networks</p>
+                        <div className="">
+                            <p>Login with social networks</p>
 
-                        <div className="google-btn btn-primary">
-                            <div className="google-icon-wrapper">
-                                <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                            <div className="google-btn btn-primary boton-login">
+                                <div className="google-icon-wrapper">
+                                    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                                </div>
+                                <p className="btn-text">
+                                    <b>Sign in with google</b>
+                                </p>
                             </div>
-                            <p className="btn-text">
-                                <b>Sign in with google</b>
-                            </p>
                         </div>
+                        <Link
+                            to="/registro"
+                            className="Link"
+                        >
+                            Registrarme
+                        </Link>
+
                     </div>
-                    <Link
-                        to="/registro"
-                        className="Link"
-                    >
-                        Create new account
-                    </Link>
                 </form>
-                { this.state.form.redirecionar && <Redirect to="/todas" />}
+                {this.state.form.redirecionar && <Redirect to="/todas" />}
             </div>
         )
     }

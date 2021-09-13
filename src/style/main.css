@@ -21,6 +21,7 @@ body{
     color: #fff;
 }
 
+
 /* Login */
 .contenedor-login{
     margin: 100px 35%;
@@ -66,11 +67,39 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-radius: 20px;
-    padding: 10px;
 }
 
-.formulario-registro > input{
-    width: 40%;
-    margin-bottom: 10px;
+.cajita{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.cajita > input{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.boton{
+    width: 100%;
+}
+
+.cajita-login{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    width: 30vw;
+}
+
+.boton-login{
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.boton-login:last-child{
+    padding: 10px 25% 0px 25%;
+    display: flex;
+    justify-content: space-between;
+
 }
