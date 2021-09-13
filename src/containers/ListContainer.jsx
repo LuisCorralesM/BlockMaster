@@ -44,6 +44,8 @@ export default class ListContainer extends Component {
                     acu.push(data[i])
                 }
 
+                console.log(acu);
+
                 this.setState({
                     scroll: true
                 })
@@ -60,11 +62,11 @@ export default class ListContainer extends Component {
 
             const { scrollTop, clientHeight, scrollHeight } = document.documentElement
 
-            console.log(scrollTop, clientHeight, scrollHeight);
+                // console.log(scrollTop, clientHeight, scrollHeight);
 
             if ((scrollTop + clientHeight) === scrollHeight) {
                 
-                scrollInfinito()
+                 scrollInfinito()
             }
         })
 
